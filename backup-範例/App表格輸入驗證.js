@@ -1,0 +1,82 @@
+import React from 'react'
+
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      username: '',
+      password: '',
+      usernameIsOK: false,
+      passwordIsOK: false,
+    }
+  }
+
+  handleInput = event => {
+    this.setState({ [event.target.name]: event.target.value })
+    console.log(event)
+  }
+
+  handleSend = event => {
+    this.state.username === 'Alex'
+      ? this.setState({ usernameIsOK: true })
+      : this.setState({ usernameIsOK: false })
+    this.state.password === '12345'
+      ? this.setState({ passwordIsOK: true })
+      : this.setState({ passwordIsOK: false })
+  }
+  render() {
+    return (
+      <>
+        <div className="form-group">
+          <label htmlFor="exampleInputEmail1">Email address</label>
+          <input
+            type="text"
+            className={`form-control ${
+              this.state.usernameIsOK ? 'is-valid' : 'is-invalid'
+            }`}
+            // className="form-control"
+            id="exampleInputEmail1"
+            name="username"
+            aria-describedby="emailHelp"
+            onChange={this.handleInput}
+          />
+          <small id="emailHelp" className="form-text text-muted">
+            We'll never share your email with anyone else.
+          </small>
+        </div>
+        <div className="form-group">
+          <label htmlFor="exampleInputPassword1">Password</label>
+          <input
+            type="password"
+            className={`form-control ${
+              this.state.passwordIsOK ? 'is-valid' : 'is-invalid'
+            }`}
+            id="exampleInputPassword1"
+            name="password"
+            onChange={this.handleInput}
+          />
+        </div>
+        <div className="form-group form-check">
+          <input
+            type="checkbox"
+            className="form-check-input"
+            id="exampleCheck1"
+          />
+          <label className="form-check-label" htmlFor="exampleCheck1">
+            Check me out
+          </label>
+        </div>
+        <button
+          type="submit"
+          className="btn btn-primary"
+          onClick={this.handleSend}
+        >
+          Submit
+        </button>
+        <span style={{ color: 'red', background: 'lightblue' }}>注意事項</span>
+      </>
+    )
+  }
+}
+
+export default App

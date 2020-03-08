@@ -5,9 +5,7 @@ import About from './pages/About'
 import Product from './pages/Product'
 import Member from './pages/Member'
 import ProductCategory from './pages/ProductCategory'
-import ProductList from './pages/ProductList'
 import Menu from './component/Menu'
-import Cart from './pages/Cart'
 import LoginIcon from './component/LoginIcon'
 function App(props) {
   // 判斷會員是否登入
@@ -38,12 +36,6 @@ function App(props) {
         </Route>
         <Route path="/ProductCategory">
           <ProductCategory />
-        </Route>
-        <Route path="/ProductList">
-          <ProductList />
-        </Route>
-        <Route path="/Cart">
-          <Cart />
         </Route>
       </Switch>
     </Router>
